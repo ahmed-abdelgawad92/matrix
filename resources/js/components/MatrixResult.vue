@@ -4,20 +4,22 @@
             <button class="btn btn-dark" @click="matrixEncodeDecode">{{encoded ? 'decode' : 'encode'}}</button>
             <button class="btn btn-dark" @click="newProcess">multiply new matrices</button>
         </div>
-        <table v-if="encoded">
-            <tr v-for="row in rows_size" :key="row">
-                <td v-for="column in columns_size" :key="column">
-                    {{matrix_encoded[row - 1][column - 1]}}
-                </td>
-            </tr>
-        </table>
-        <table v-else>
-            <tr v-for="row in rows_size" :key="row">
-                <td v-for="column in columns_size" :key="column">
-                    {{matrix[row - 1][column - 1]}}
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive mb-5">
+            <table v-if="encoded">
+                <tr v-for="row in rows_size" :key="row">
+                    <td v-for="column in columns_size" :key="column">
+                        {{matrix_encoded[row - 1][column - 1]}}
+                    </td>
+                </tr>
+            </table>
+            <table v-else>
+                <tr v-for="row in rows_size" :key="row">
+                    <td v-for="column in columns_size" :key="column">
+                        {{matrix[row - 1][column - 1]}}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 

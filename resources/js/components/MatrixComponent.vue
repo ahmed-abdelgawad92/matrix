@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="table-responsive">
         <table class="table">
             <tr v-for="rows in rows_size" :key="rows">
                 <matrix-item 
