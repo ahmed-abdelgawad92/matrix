@@ -70,6 +70,11 @@ class MatrixService
     private function convertNumberIntoLetter(int $number): string
     {
         $letters = '';
+        
+        if($number == 0) {
+            return 'N/A';
+        }
+        
         do {
             $index = (intval($number) % 26) - 1;
             if($index < 0) {
