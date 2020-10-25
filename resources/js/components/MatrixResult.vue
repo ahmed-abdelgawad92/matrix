@@ -59,6 +59,7 @@
     }
 
     td{
+        text-align: center;
         border: 1px solid black;
         padding: 15px;
         font-size: 22px;

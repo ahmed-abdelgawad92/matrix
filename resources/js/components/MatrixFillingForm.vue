@@ -1,6 +1,9 @@
 <template>
     <div>
         <div v-if="matrix_size_1 && matrix_size_1">
+            <div class="text-center">
+                <button class="btn btn-dark" @click="fillRandomly">Fill both matrices with random numbers</button>
+            </div>
             <h4 class="text-center mt-4">Fill in Matrix 1</h4>
             <matrix :size="matrix_size_1" @UPDATE_MATRIX="updateMatrix($event, 1)"></matrix>
 
@@ -37,6 +40,9 @@
             Matrix
         },
         methods: {
+            fillRandomly() {
+                EventBus.$emit('FILL_INPUTS_RANDOMLY');
+            },
             updateMatrix(new_matrix, which_matrix) {
                 if (which_matrix == 1) {
                     this.matrix_1 = new_matrix;

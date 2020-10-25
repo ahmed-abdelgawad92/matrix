@@ -4,6 +4,7 @@
             :state="error_state" 
             v-model="item_value" 
             @blur="updateItem"
+            class="min-width-70"
         ></b-form-input>
     </td>
 </template>
@@ -20,11 +21,15 @@
         },
         props: ['value'],
         methods: {
+            fillRandomly() {
+                this.item_value = Math.floor(Math.random() * 10);
+                this.$emit('input', this.item_value);
+            },
             updateItem() {
                 this.error_state = null;
                 let valid = this.validateInput();
                 if (valid) {
-                    this.$emit('input', this.item_value)
+                    this.$emit('input', this.item_value);
                 }
             },
             validateInput() {
@@ -40,13 +45,17 @@
         },
         created() {
             EventBus.$on('VALIDATE_MATRIX_ITEMS', this.validateInput);
+            EventBus.$on('FILL_INPUTS_RANDOMLY', this.fillRandomly);
         },
         destroyed() {
             EventBus.$off('VALIDATE_MATRIX_ITEMS', this.validateInput);
+            EventBus.$off('FILL_INPUTS_RANDOMLY', this.fillRandomly);
         }
     }
 </script>
 
 <style lang="scss" scoped>
-
+    .min-width-70{
+        min-width: 70px;
+    }
 </style>
