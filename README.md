@@ -20,4 +20,8 @@ npm run dev
 ```
 php artisan serve
 ```
+- To run the unit test of the calculations and encoding use the following command
+````
+php artisan test
+````
 
