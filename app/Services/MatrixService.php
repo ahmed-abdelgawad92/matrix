@@ -30,7 +30,7 @@ class MatrixService
         for ($i = 0; $i < $count_matrix_1; $i++) {
             for ($j = 0; $j < $number_columns_2; $j++) {
                 $sum = 0;
-                for ($k=0; $k < $count_matrix_2; $k++) { 
+                for ($k = 0; $k < $count_matrix_2; $k++) { 
                     $sum += ($matrix_1[$i][$k] * $matrix_2[$k][$j]);
                 }
                 $matrix_result[$i][$j] = $sum;
